@@ -1,0 +1,35 @@
+# Copyright (c) 2024 Xili
+# SPDX-License-Identifier: Apache-2.0
+
+manifest:
+  version: 0.13
+  remotes:
+    - name: zephyrproject-rtos
+      url-base: https://github.com/zephyrproject-rtos
+    - name: openbmc
+      url-base: https://github.com/openbmc
+
+  projects:
+    - name: libpldm
+      remote: openbmc
+      path: modules/lib/libpldm
+      revision: 1c4a11442648a7ac670167b4d306a70376a35cc2
+    - name: zephyr
+      remote: zephyrproject-rtos
+      repo-path: zephyr
+      revision: v4.4.0
+      path: zephyr
+      import:
+        name-allowlist:
+          - hal_rpi_pico
+          - cmsis_6
+          - hal_stm32
+          - libmctp
+          - mbedtls
+          - mcuboot
+          - nanopb
+          - segger
+          - tf-psa-crypto
+
+  group-filter:
+    - +optional
